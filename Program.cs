@@ -12,9 +12,21 @@ namespace ConvertExcel
         [STAThread]
         static void Main()
         {
+            AppDomain.CurrentDomain.UnhandledException +=new UnhandledExceptionEventHandler(UnhandledExceptionEventHandler);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+        }
+
+        static void UnhandledExceptionEventHandler(object sender, UnhandledExceptionEventArgs e)
+        {
+            try
+            {
+                LogHelper.Info(e.ExceptionObject.ToString());//LogHelper是写日志的类，这里，可以直接写到文件里
+            }
+            catch
+            {
+            }
         }
     }
 }
