@@ -12,6 +12,7 @@ using System.Reflection;
 using Microsoft.Office.Interop.Excel;
 using DataTable = System.Data.DataTable;
 using System.Runtime.InteropServices;
+using log4net;
 
 namespace ConvertExcel
 {
@@ -52,10 +53,17 @@ namespace ConvertExcel
 
         private void Do()
         {
-            DirectoryInfo folder = new DirectoryInfo(this.txtOrg.Text);
-            GetFiles(folder);
-            msg = string.Format("全部转换结束！");
-            AppendMsg();
+            try
+            {
+                DirectoryInfo folder = new DirectoryInfo(this.txtOrg.Text);
+                GetFiles(folder);
+                msg = string.Format("全部转换结束！");
+                AppendMsg();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "出错啦！", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void GetFiles(DirectoryInfo folder)
@@ -73,6 +81,7 @@ namespace ConvertExcel
                         Type.Missing, Type.Missing, Type.Missing, Type.Missing);
                     workbook.SaveAs(Path.Combine(this.txtNew.Text, file.Name.Substring(0, file.Name.LastIndexOf('.')) + ".xlsx"), Microsoft.Office.Interop.Excel.XlFileFormat.xlOpenXMLWorkbook, Type.Missing, Type.Missing, Type.Missing, false, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlNoChange, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
                     msg = string.Format(file.FullName + "----转换完毕！");
+
                     AppendMsg();
                     KillProcess(myapp.Hwnd);
                     GC.Collect();

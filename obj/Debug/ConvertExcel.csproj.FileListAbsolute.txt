@@ -10,9 +10,12 @@ F:\Projects\ConvertExcel\ConvertExcel\obj\Debug\ConvertExcel.pdb
 E:\Works\ConvertExcel\bin\Debug\ConvertExcel.exe.config
 E:\Works\ConvertExcel\bin\Debug\ConvertExcel.exe
 E:\Works\ConvertExcel\bin\Debug\ConvertExcel.pdb
+E:\Works\ConvertExcel\bin\Debug\Microsoft.Office.Interop.Excel.dll
+E:\Works\ConvertExcel\bin\Debug\OFFICE.DLL
 E:\Works\ConvertExcel\obj\Debug\ConvertExcel.csproj.ResolveComReference.cache
 E:\Works\ConvertExcel\obj\Debug\ConvertExcel.Form1.resources
 E:\Works\ConvertExcel\obj\Debug\ConvertExcel.Properties.Resources.resources
 E:\Works\ConvertExcel\obj\Debug\ConvertExcel.csproj.GenerateResource.Cache
 E:\Works\ConvertExcel\obj\Debug\ConvertExcel.exe
 E:\Works\ConvertExcel\obj\Debug\ConvertExcel.pdb
+E:\Works\ConvertExcel\bin\Debug\log4net.dll
